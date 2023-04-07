@@ -40,4 +40,18 @@ def lucky_ticket():
 # lucky_ticket()
 
 
+# Задача 8: Требуется определить, можно ли от шоколадки размером n × m долек отломить k долек,
+# если разрешается сделать один разлом по прямой между дольками (то есть разломить шоколадку на два прямоугольника).
+def chocolate_task():
+    print("Task №8")
+    n = int(input("Enter chocolate columns: "))
+    m = int(input("Enter chocolate rows: "))
+    k = int(input("Enter chocolate piece to take: "))
+    if k < n * m and ((k % n == 0) or (k % m == 0)):
+        print("Yes you can take !")
+    else:
+        print("My apologize, but you can't take or even eat the chocolate !")
+
+
+# chocolate_task()
 
