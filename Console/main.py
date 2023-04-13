@@ -55,3 +55,28 @@ def chocolate_task():
 
 # chocolate_task()
 
+
+#  Задача 10:
+#  На столе лежат n монеток. Некоторые из них лежат вверх решкой, а
+# некоторые – гербом. Определите минимальное число монеток, которые нужно
+# перевернуть, чтобы все монетки были повернуты вверх одной и той же
+# стороной. Выведите минимальное количество монет, которые нужно
+# перевернуть
+def coin_task():
+    n = int(input())
+    coin_zero = 0
+    coin_one = 0
+    for i in range(n):
+        other = int(input("Enter the side of the coin (0 or 1): "))
+        if other == 1:
+            coin_one += 1
+        else:
+            coin_zero += 1
+    if coin_one > coin_zero:
+        print("Coins with '1' is more than '0' !")
+    else:
+        print("Coins with '0' is more than '1' !")
+
+
+# coin_task()
+
