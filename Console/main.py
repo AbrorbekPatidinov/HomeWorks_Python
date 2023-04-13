@@ -98,5 +98,14 @@ def petya_and_katya_guess_number_task():
 # petya_and_katya_guess_number_task()
 
 
+# Задача 14: Требуется вывести все целые степени двойки (т.е. числа вида 2k), не превосходящие числа N.
+def degree_number_that_not_increases_than_N_task():
+    n = int(input("Enter number: "))
+    index = 0
+    while 2 ** 1 <= n:
+        print(2 ** index)
+        index += 1
 
+
+# degree_number_that_not_increases_than_N_task()
 
