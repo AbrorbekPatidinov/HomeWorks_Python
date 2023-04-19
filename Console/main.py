@@ -133,5 +133,31 @@ def task_16():
         print("There is no number such as you entered !")
 
 
-task_16()
+# task_16()
+
+
+# Задача 18: Требуется найти в массиве A[1..N] самый близкий по величине элемент к заданному числу X.
+# Пользователь в первой строке вводит натуральное число N – количество элементов в массиве.
+# В последующих  строках записаны N целых чисел Ai. Последняя строка содержит число X
+def task_18():
+    print("Task №18")
+    count = abs(int(input("Enter count of elements in list A: ")))
+    a_entered = input("Enter elements to list by spacing: ").split()
+    a_number = list(map(int, a_entered))
+    if len(a_number) != count or count == 0:
+        print("Entered elements are not corresponded to declared quantity !")
+    else:
+        x = int(input("Enter the number x, with which to compare the elements of the list: "))
+        minimum = abs(x - a_number[0])
+        index = 0
+        for i in range(1, count):
+            count = abs(x - a_number[i])
+            if count < minimum:
+                minimum = count
+                index = i
+        print(f"Number {a_number[index]} in list A more near in number {x}, their difference is {abs(x - a_number[index])}")
+
+
+# task_18()
+
 
