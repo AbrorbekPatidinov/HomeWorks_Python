@@ -98,7 +98,6 @@ def task_12():
                 print("Guessed numbers are: ", i, j)
 
 
-
 # task_12()
 
 
@@ -155,9 +154,40 @@ def task_18():
             if count < minimum:
                 minimum = count
                 index = i
-        print(f"Number {a_number[index]} in list A more near in number {x}, their difference is {abs(x - a_number[index])}")
+        print(
+            f"Number {a_number[index]} in list A more near in number {x}, their difference is {abs(x - a_number[index])}")
 
 
 # task_18()
 
 
+# Задача 20: * В настольной игре Скрабл (Scrabble) каждая буква имеет определенную ценность.
+# В случае с английским алфавитом очки распределяются так:A, E, I, O, U, L, N, S, T, R – 1 очко;
+# D, G – 2 очка; B, C, M, P – 3 очка; F, H, V, W, Y – 4 очка; K – 5 очков; J, X – 8 очков; Q, Z – 10 очков.
+# А русские буквы оцениваются так: А, В, Е, И, Н, О, Р, С, Т – 1 очко; Д, К, Л, М, П, У – 2 очка; Б, Г, Ё, Ь, Я – 3 очка;
+# Й, Ы – 4 очка; Ж, З, Х, Ц, Ч – 5 очков; Ш, Э, Ю – 8 очков; Ф, Щ, Ъ – 10 очков.
+# Напишите программу, которая вычисляет стоимость введенного пользователем слова.
+# Будем считать, что на вход подается только одно слово, которое содержит либо только английские, либо только русские буквы.
+def task_20():
+    print("Task №20")
+    letters_english = {1: 'AEIOULNSTR', 2: 'DG', 3: 'BCMP', 4: 'FHVWY', 5: 'K', 8: 'JX', 10: 'QZ'}
+    letters_russian = {1: 'АВЕИНОРСТ', 2: 'ДКЛМПУ', 3: 'БГЁЬЯ', 4: 'ЙЫ', 5: 'ЖЗХЦЧ', 8: 'ШЭЮ', 10: 'ФШЪ'}
+    words = input("Enter word in english or in Russian: ")
+    if words[0].lower() in letters_english:
+        summ = 0
+        for letter in words:
+            for key, value in letters_english.items():
+                if letter.upper() in value:
+                    summ += key
+        print("The cost of english word: ", summ)
+    else:
+        if words[0].lower() in letters_russian:
+            summ = 0
+            for letter in words:
+                for key, value in letters_russian.items():
+                    if letter.upper() in value:
+                        summ += key
+            print("The cost of english word: ", summ)
+
+
+# task_20()
