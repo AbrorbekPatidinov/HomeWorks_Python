@@ -244,3 +244,19 @@ def task_24():
 
 
 # task_24()
+
+
+# Задача 26:  Напишите программу, которая на вход принимает два числа A и B, и возводит число А в целую степень B с помощью рекурсии.
+def task_26(a, b):
+    if b == 0:
+        return 1
+    else:
+        return a * task_26(a, b - 1)
+
+
+# a = int(input("Enter the number: "))
+# b = int(input("Enter the degree: "))
+# result = task_26(a, b)
+# print("Result is: ", result)
+
+
