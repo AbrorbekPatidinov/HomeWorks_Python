@@ -273,3 +273,14 @@ def task_30(a, b):
 # print(task_30(10, 10))
 
 
+# Задача 30:  Заполните массив элементами арифметической прогрессии. Её первый элемент, разность и количество элементов нужно ввести с клавиатуры. Формула для получения n-го члена прогрессии: an = a1 + (n-1) * d.
+# Каждое число вводится с новой строки.
+def task_32():
+    a1 = int(input("Enter the first element: "))
+    d = int(input("Enter the difference: "))
+    n = int(input("Enter the count of elements: "))
+    for i in range(n):
+        print(a1 + i * d)
+
+
+# task_32()
