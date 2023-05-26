@@ -1,6 +1,7 @@
 # Homeworks in Python
 import random
 import re
+import os
 
 # Задача 2: Найдите сумму цифр трехзначного числа.
 def task_2(a, b, c):
@@ -334,5 +335,104 @@ def print_operation_table_task_36(operation, num_rows=6, num_columns=6):
 
 # print_operation_table_task_36(lambda x, y: x * y)
 
+
+# Задача 38: Дополнить телефонный справочник возможностью изменения и удаления данных.
+# Пользователь также может ввести имя или фамилию, и Вы должны реализовать функционал для изменения и удаления данных
+def add_contact_task_38_1(name, phone, file):
+    with open(file, "a") as f:
+        f.write(f"{name},{phone}\n")
+
+
+def update_contact_task_38_2(name, phone, file):
+    data = []
+    found = False
+    with open(file, "r") as f:
+        for line in f:
+            n, p = line.strip().split(",")
+            if n == name:
+                found = True
+                data.append(f"{name},{phone}")
+            else:
+                data.append(f"{n},{p}")
+    if found:
+        with open(file, "w") as f:
+            f.write('\n'.join(data))
+
+
+def remove_contact_task_38_3(name, file):
+    data = []
+    found = False
+    with open(file, "r") as f:
+        for line in f:
+            n, p = line.strip().split(",")
+            if n == name:
+                found = True
+            else:
+                data.append(f"{n},{p}")
+    if found:
+        with open(file, "w") as f:
+            f.write('\n'.join(data))
+
+
+def find_contact_task_38_4(name, file):
+    result = []
+    with open(file, "r") as f:
+        for line in f:
+            n, p = line.strip().split(",")
+            if n == name:
+                result.append((n, p))
+    return result
+
+
+def show_all_contacts_task_38_5(file):
+    with open(file, "r") as f:
+        for line in f:
+            n, p = line.strip().split(",")
+            print(f"{n}: {p}")
+
+
+def main_task_38_6():
+    file = "phonebook.txt"
+    while True:
+        print("Выберите команду:")
+        print("1. Посмотреть все контакты")
+        print("2. Найти контакт по имени")
+        print("3. Добавить контакт")
+        print("4. Изменить контакт")
+        print("5. Удалить контакт")
+        print("6. Выход")
+        choice = input("> ")
+
+        if choice == "1":
+            show_all_contacts_task_38_5(file)
+        elif choice == "2":
+            name = input("Введите имя: ")
+            contacts = find_contact_task_38_4(name, file)
+            if contacts:
+                for n, p in contacts:
+                    print(f"{n}: {p}")
+            else:
+                print("Контакт не найден")
+        elif choice == "3":
+            name = input("Введите имя: ")
+            phone = input("Введите телефон: ")
+            add_contact_task_38_1(name, phone, file)
+        elif choice == "4":
+            name = input("Введите имя: ")
+            phone = input("Введите новый телефон: ")
+            update_contact_task_38_2(name, phone, file)
+        elif choice == "5":
+            name = input("Введите имя: ")
+            remove_contact_task_38_3(name, file)
+        elif choice == "6":
+            break
+        else:
+            print("Некорректный выбор")
+
+    print("До свидания!")
+
+
+# if __name__ == '__main__':
+  #  main_task_38_6()
 
 
