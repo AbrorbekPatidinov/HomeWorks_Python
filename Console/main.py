@@ -2,6 +2,7 @@
 import random
 import re
 import os
+import pandas as pd
 
 # Задача 2: Найдите сумму цифр трехзначного числа.
 def task_2(a, b, c):
@@ -436,3 +437,21 @@ def main_task_38_6():
   #  main_task_38_6()
 
 
+# Задача 40: Работать с файлом california_housing_train.csv, который находится в папке sample_data.
+# Определить среднюю стоимость дома, где кол-во людей от 0 до 500 (population).
+# Задача 42: Узнать какая максимальная households в зоне минимального значения population.
+def task_40_and_42_together():
+    # загрузка данных из файла
+    data = pd.read_csv('sample_data/california_housing_train.csv')
+    # вычисление средней стоимости дома для людей с population от 0 до 500
+    avg_house_value = data.loc[(data['population'] >= 0) & (data['population'] <= 500), 'median_house_value'].mean()
+    # нахождение минимального значения population
+    min_population = data['population'].min()
+    # нахождение максимального значения households для зоны с минимальным значением population
+    max_households = data.loc[data['population'] == min_population, 'households'].max()
+    # вывод результатов
+    print('Средняя стоимость дома для людей с population от 0 до 500:', avg_house_value)
+    print('Максимальное кол-во households для зоны с наименьшим population:', max_households)
+
+
+# task_40_and_42_together()
